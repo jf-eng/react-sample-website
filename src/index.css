@@ -1,13 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(236, 233, 233);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  font-family: "Quicksand";
+}
+
+.container {
+  margin: 25px;
+}
+.navbar {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  /* max-width: 600px; */
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+  background-color: rgb(110, 164, 245);
+}
+
+.navbar h1 {
+  /* color: #f1356d; */
+  padding-left:5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+.navbar a:hover {
+  color: #f1356d;
+}
+
+.card {
+  margin: 30px;
+  width: 50%;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.card h2,
+.card h3 {
+  text-align: left;
+}
+
+.form-group {
+  text-align: center;
+  /* border: 1px grey solid; */
+  border-radius: 15px;
+  padding: 8px;
+  margin: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  display: block;
+}
+
+.form {
+  padding: 20px;
+  position: relative;
+}
+
+.form-button:hover {
+  background: rgb(11, 66, 147);
+  color: #fff;
+}
+
+.form-button {
+  position: bottom;
+  border-radius: 15px;
+  background-color: rgb(51, 125, 235);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+}
+
+.field-input {
+  font-size: 12pt;
 }
