@@ -30,7 +30,7 @@ export const PasswordField: React.FC<PasswordProps> = ({ handleChange }) => {
         value={pass}
         placeholder="Password"
       />
-      {passError ? (
+      {passError===1 ? (
         <div className="error-message">
           <small>Password must be longer than 8 characters!</small>
         </div>

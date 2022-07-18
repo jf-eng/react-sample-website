@@ -23,7 +23,7 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
   };
 
   const inputHTML = document.getElementById('name') as HTMLElement;
-  
+
   if (nameError === 1) {
     inputHTML.style.borderBottom = "2px solid red";
   } else if (nameError === 2) {
@@ -48,7 +48,7 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
           onFocus={() => handleFocus(inputRef.current)}
           placeholder="Username"
         />
-        {nameError ? (
+        {nameError===1 ? (
           <div className="error-message">
             <small>Username must be longer than 5 characters!</small>
           </div>
