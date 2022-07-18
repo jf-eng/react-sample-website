@@ -6,7 +6,7 @@ interface NameFieldProps {
 
 export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
   const [name, setName] = useState("");
-  const [nameError, setNameError] = useState(false);
+  const [nameError, setNameError] = useState<number>(0); // 0 uninitialised, 1 error, 2 no error
   const [focus, setFocus] = useState(false);
 
   // Checks if currentRef item is in focus - not used but left as boilerplate
@@ -22,9 +22,16 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
     }
   };
 
+  const inputHTML = document.getElementById('name') as HTMLElement;
+  
+  if (nameError === 1) {
+    inputHTML.style.borderBottom = "2px solid red";
+  } else if (nameError === 2) {
+    inputHTML.style.borderBottom = "2px solid green";
+  }
+
   return (
     <div className="form-group">
-      <div className="field">
         <input
           type="text"
           name="name"
@@ -34,7 +41,7 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
           onChange={(e) => {
             handleChange(e.target.value);
             setName(e.target.value);
-            name.length < 5 ? setNameError(true) : setNameError(false);
+            name.length < 5 ? setNameError(1) : setNameError(2);
           }}
           value={name}
           ref={inputRef}
@@ -48,7 +55,6 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
         ) : (
           ""
         )}
-      </div>
     </div>
   );
 };

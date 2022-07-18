@@ -143,7 +143,7 @@ code {
   transform:rotate(45deg) translate(-5px,-6px);
 }
 
-
+/* Login Form Card */
 .card {
   margin: 30px;
   width: 50%;
@@ -160,15 +160,21 @@ code {
 
 .form-group {
   text-align: center;
-  /* border: 1px grey solid; */
   border-radius: 15px;
   padding: 8px;
   margin: 15px;
 }
 
 .form-group input {
+  outline:none;
   width: 100%;
   display: block;
+  border:none;
+  border-bottom: 1px solid black;
+}
+
+.form-group input:focus {
+  border-bottom: 2px solid rgb(69, 69, 238);
 }
 
 .form-button:hover {

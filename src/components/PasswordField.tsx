@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface PasswordProps {
   handleChange: (pass: string) => void;
@@ -6,8 +6,14 @@ interface PasswordProps {
 
 export const PasswordField: React.FC<PasswordProps> = ({ handleChange }) => {
   const [pass, setPass] = useState("");
-  const [passError, setPassError] = useState(false);
+  const [passError, setPassError] = useState(0); // 0 uninitialised, 1 error, 2 no error
+  const inputHTML = document.getElementById('password') as HTMLElement;
 
+  if (passError === 1) {
+    inputHTML.style.borderBottom = "2px solid red";
+  } else if (passError === 2) {
+    inputHTML.style.borderBottom = "2px solid green";
+  }
   return (
     <div className="form-group">
       <input
@@ -19,7 +25,7 @@ export const PasswordField: React.FC<PasswordProps> = ({ handleChange }) => {
         onChange={(e) => {
           handleChange(e.target.value);
           setPass(e.target.value);
-          pass.length < 8 ? setPassError(true) : setPassError(false);
+          pass.length < 8 ? setPassError(1) : setPassError(2);
         }}
         value={pass}
         placeholder="Password"
