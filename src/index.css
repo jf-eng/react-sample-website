@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 body {
   margin: 0;
@@ -17,37 +18,131 @@ code {
 
 * {
   font-family: "Quicksand";
+  padding: 0px;
+  margin: 0px;
 }
 
 .container {
   margin: 25px;
 }
+
 .navbar {
-  padding: 8px;
+  padding: 1px;
   display: flex;
   align-items: center;
-  /* max-width: 600px; */
-  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  justify-content: space-around;
+  min-height: 6vh;
   border-bottom: 1px solid #f2f2f2;
   background-color: rgb(110, 164, 245);
 }
 
-.navbar h1 {
-  /* color: #f1356d; */
-  padding-left:5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.navbar .logo {
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding-left: 30px;
+  font-size: 20pt;
 }
-.navbar .links {
+
+.navbar .nav-links {
   margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  list-style: none;
 }
 .navbar a {
-  margin-left: 16px;
+  color: rgb(226, 226, 226);
+  /* margin-left: 16px; */
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 14pt;
   text-decoration: none;
-  padding: 6px;
+  padding: 15px;
 }
+
 .navbar a:hover {
-  color: #f1356d;
+  color: #423f40;
 }
+
+.navbar .burger {
+  display: none;
+}
+
+.navbar .burger div {
+  width: 30px;
+  height: 3px;
+  background-color: rgb(226, 226, 226);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar .burger:hover {
+  background-color: #423f40;
+  cursor: pointer;
+}
+
+/* Allow dynamic rendering of page depending on width. <768px do this */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* disable ability to horizontal scroll */
+  }
+  .navbar .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 94vh;
+    background-color: rgb(110, 164, 245);
+    top: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    min-width: 100px;
+    /*offset the container all the way to the right, not shown*/
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+
+  .navbar .nav-links li {
+    opacity: 0;
+  }
+
+  .navbar .burger {
+    display: block;
+  }
+}
+
+/* Toggle for sidebar - if active, remove x-offset
+    Toggled using classList.toggle('nav-active') */
+.navbar .nav-active {
+  transform: translateX(0%);
+}
+
+/* Animate the links in the sidebar */
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px); /* allow slide in from right */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* Change burger into an X - toggled using classList.toggle */
+.burger-clicked .line-1 {
+  transform: rotate(-45deg) translate(-5px,6px);
+}
+.burger-clicked .line-2 {
+  opacity: 0;
+}
+.burger-clicked .line-3 {
+  transform:rotate(45deg) translate(-5px,-6px);
+}
+
 
 .card {
   margin: 30px;
@@ -76,14 +171,10 @@ code {
   display: block;
 }
 
-.form {
-  padding: 20px;
-  position: relative;
-}
-
 .form-button:hover {
   background: rgb(11, 66, 147);
   color: #fff;
+  cursor: pointer;
 }
 
 .form-button {
