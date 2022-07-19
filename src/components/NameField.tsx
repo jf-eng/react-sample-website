@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 interface NameFieldProps {
   handleChange: (name: string) => void;
@@ -22,7 +24,7 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
     }
   };
 
-  const inputHTML = document.getElementById('name') as HTMLElement;
+  const inputHTML = document.getElementById("name") as HTMLElement;
 
   if (nameError === 1) {
     inputHTML.style.borderBottom = "2px solid red";
@@ -32,29 +34,30 @@ export const NameField: React.FC<NameFieldProps> = ({ handleChange }) => {
 
   return (
     <div className="form-group">
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required={true}
-          className="field-input"
-          onChange={(e) => {
-            handleChange(e.target.value);
-            setName(e.target.value);
-            name.length < 5 ? setNameError(1) : setNameError(2);
-          }}
-          value={name}
-          ref={inputRef}
-          onFocus={() => handleFocus(inputRef.current)}
-          placeholder="Username"
-        />
-        {nameError===1 ? (
-          <div className="error-message">
-            <small>Username must be longer than 5 characters!</small>
-          </div>
-        ) : (
-          ""
-        )}
+      <FontAwesomeIcon className="icons" icon={faUser} />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required={true}
+        className="field-input"
+        onChange={(e) => {
+          handleChange(e.target.value);
+          setName(e.target.value);
+          name.length < 5 ? setNameError(1) : setNameError(2);
+        }}
+        value={name}
+        ref={inputRef}
+        onFocus={() => handleFocus(inputRef.current)}
+        placeholder="Username"
+      />
+      {nameError === 1 ? (
+        <div className="error-message">
+          <small>Username must be longer than 5 characters!</small>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

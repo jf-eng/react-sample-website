@@ -14,3 +14,4 @@ Create login page using react hooks, split into components.
 - [ ] Add forget password
 - [ ] grid, flexbox - 12 cols
 - [ ] bootstrap
+- [ ] Refactor loginform code

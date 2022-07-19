@@ -24,7 +24,7 @@ code {
 
 .navbar {
   padding: 1px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   font-family: "Poppins", sans-serif;
@@ -131,19 +131,19 @@ code {
 
 /* Change burger into an X - toggled using classList.toggle */
 .burger-clicked .line-1 {
-  transform: rotate(-45deg) translate(-5px,6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 .burger-clicked .line-2 {
   opacity: 0;
 }
 .burger-clicked .line-3 {
-  transform:rotate(45deg) translate(-5px,-6px);
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Login Form Card */
 .card {
   margin: auto;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   max-width: 300px;
   border-radius: 15px;
   padding: 30px;
@@ -158,21 +158,42 @@ code {
 
 .form-group {
   text-align: center;
-  border-radius: 15px;
   padding: 8px;
   margin: 15px;
 }
 
 .form-group input {
-  outline:none;
+  outline: none;
   width: 100%;
   display: block;
-  border:none;
+  border: none;
+  height:20px;
+  margin-left: 25px;
   border-bottom: 1px solid black;
 }
 
 .form-group input:focus {
   border-bottom: 2px solid rgb(69, 69, 238);
+}
+
+.form-group .icons {
+  position: absolute;
+  display: flex;
+  align-content: left;
+  margin: 0px auto;
+  margin-top: 2px;
+}
+
+/* Span element for the hide password button */
+#eye{
+  float:right;
+  margin-right: -20px;
+  margin-top: -20px;
+  cursor: pointer;
+}
+
+#hide-password{
+  display: none;
 }
 
 .form-button:hover {
